@@ -22,11 +22,11 @@ export default function NavBar(props){
 
             <form className="d-flex" role="search">
             <div className={`form-check form-switch ${props.mystyle} `}>
-                <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggleGreen} id="flexSwitchCheckChecked"  />
+                <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggleGreen} id="flexSwitchCheckChecked" disabled={props.mode==="dark"}  />
                 <label className="form-check-label" htmlFor="flexSwitchCheckChecked" onClick={props.toggleGreen}>Enable green dark mode</label>
               </div>
               <div className={`form-check form-switch ${props.mystyle} `}>
-                <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggleMode} id="flexSwitchCheckChecked" />
+                <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggleMode} id="flexSwitchCheckChecked" disabled={props.mode==="success"}/>
                 <label className="form-check-label" htmlFor="flexSwitchCheckChecked" onClick={props.toggleMode} >Enable dark mode</label>
               </div>
             </form>

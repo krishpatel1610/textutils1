@@ -34,13 +34,13 @@ function TextForm(props) {
                 <label htmlFor="myBox" className="form-label"><h1>{props.heading}</h1></label>
                 <textarea className="form-control" style={{backgroundColor: (props.mode ==='success' ? '#198754':props.mode==='dark' ? '#212529':'white'),color: props.mode ==='dark' ? 'white':'black',borderColor: props.mode === 'dark' ?'#212529':''}} value={text} onChange={handleonChange} id="myBox" rows="8"></textarea>
             </div>
-                <p>{text.split(" ").length-1} word and {text.length} characters {0.008 * text.split(" ").length} Minutes read</p>
+                <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} word and {text.length} characters {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
                 
                 
-            <button className="btn btn-primary mx-1 my-1" style={{backgroundColor: (props.mode ==='dark' ? '#212529':'')||(props.mode ==='success' ? '#198754':''), borderColor: props.mode === 'dark' ?'#212529':''}} onClick={handleclearClick}>Clear text</button>
-            <button className="btn btn-primary mx-1 my-1" style={{backgroundColor: (props.mode ==='dark' ? '#212529':'')||(props.mode ==='success' ? '#198754':''), borderColor: props.mode === 'dark' ?'#212529':''}} onClick={handleupClick}>Convert to upper case</button>
-            <button className="btn btn-primary mx-1 my-1" style={{backgroundColor: (props.mode ==='dark' ? '#212529':'')||(props.mode ==='success' ? '#198754':''), borderColor: props.mode === 'dark' ?'#212529':''}} onClick={handledownClick}>Convert to lower case</button>
-            <button className="btn btn-primary mx-1 my-1" style={{backgroundColor: (props.mode ==='dark' ? '#212529':'')||(props.mode ==='success' ? '#198754':''), borderColor: props.mode === 'dark' ?'#212529':''}} onClick={handlecopy}>copy Text</button>
+            <button className="btn btn-primary mx-1 my-1" style={{backgroundColor: (props.mode ==='dark' ? '#212529':'')||(props.mode ==='success' ? '#198754':''), borderColor: props.mode === 'dark' ?'#212529':''}} onClick={handleclearClick} disabled={text.length===0}>Clear text</button>
+            <button className="btn btn-primary mx-1 my-1" style={{backgroundColor: (props.mode ==='dark' ? '#212529':'')||(props.mode ==='success' ? '#198754':''), borderColor: props.mode === 'dark' ?'#212529':''}} onClick={handleupClick} disabled={text.length===0}>Convert to upper case</button>
+            <button className="btn btn-primary mx-1 my-1" style={{backgroundColor: (props.mode ==='dark' ? '#212529':'')||(props.mode ==='success' ? '#198754':''), borderColor: props.mode === 'dark' ?'#212529':''}} onClick={handledownClick} disabled={text.length===0}>Convert to lower case</button>
+            <button className="btn btn-primary mx-1 my-1" style={{backgroundColor: (props.mode ==='dark' ? '#212529':'')||(props.mode ==='success' ? '#198754':''), borderColor: props.mode === 'dark' ?'#212529':''}} onClick={handlecopy}disabled={text.length===0}>copy Text</button>
             </div>
             <div className="component my-1">
             <h2>previvew</h2>
